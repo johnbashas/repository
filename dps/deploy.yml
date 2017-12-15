@@ -3,24 +3,6 @@
 
 # Roles defined for People service application
 
-- hosts: dev_ppl
-  remote_user: vagrant
-  become: true
-  roles:
-    - { role: pplservice, when: app_name == "pplservice" }
-
-- hosts: prod_ppl
-  remote_user: vagrant
-  become: true
-  roles:
-    - { role: pplservice, when: app_name == "pplservice" }
-
-- hosts: stage_ppl
-  remote_user: vagrant
-  become: true
-  roles:
-    - { role: pplservice, when: app_name == "pplservice" }
-
 - hosts: ansiblenode 
   remote_user: vagrant
   become: true
