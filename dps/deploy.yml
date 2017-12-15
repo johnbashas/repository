@@ -3,7 +3,7 @@
 
 # Roles defined for People service application
 
-- hosts: ansiblenode 
+- hosts: dev_dps 
   remote_user: vagrant
   become: true
   roles:
