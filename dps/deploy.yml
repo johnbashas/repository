@@ -4,7 +4,7 @@
 # Roles defined for People service application
 
 - hosts: dev_dps 
-  remote_user: u42093
+  remote_user: vagrant
   become: true
   roles:
     - { role: dps, when: app_name == "dps" }
