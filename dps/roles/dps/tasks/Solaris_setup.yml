@@ -22,12 +22,6 @@
       path: "{{ APP_HOME }}"
     register: deployment_folder_stat
     
-  - name: Hostname
-    shell: hostname
-   
-  - name: Create new file
-    shell: touch /tmp/newfile.txt
-
   - name: debug
     debug:
       msg:
@@ -121,6 +115,7 @@
       group: "{{ APP_GROUP }}"
       recurse: yes
       mode: 0777
+      state: directory
 
   - name: Moving folder to deploy folder
     copy:
