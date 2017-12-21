@@ -104,7 +104,7 @@ TEMP_DEPLOY_CONFIRMATION_FILE: '{{ DPS_DEPLOY_DIR }}/bin/BUILD'
 #TEMP_DEPLOY: '{{ DEPLOY_DIR }}/{{ BUILD_FINFILENAME }}'
 TEMP_DEPLOY_FILE: '{{ DEPLOY_DIR }}/bin/BUILD'
 
-log_file: '/export/home/vagrant/ansible.log'
+log_file: '/home/vagrant/ansible.log'
 
 #Extra vars description
 process_name: '{{ PROCESS_NAME }}'
