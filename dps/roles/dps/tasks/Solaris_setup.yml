@@ -21,6 +21,9 @@
     stat:
       path: "{{ APP_HOME }}"
     register: deployment_folder_stat
+    
+  - name: Hostname
+    shell: hostname
 
   - name: debug
     debug:
