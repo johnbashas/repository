@@ -1,0 +1,46 @@
+---
+# defaults file for Fincadservice application
+
+FIN_APP: '{{ finapp_name }}'
+JAVA_LOC_ORIG: '/usr/jdk/jdk1.8.0_131'
+env_full_fillment: 'DEV-Development'
+PROCESS_NAME: sendmail
+APP_PROGRAM_FILE: '/usr/lib/sendmail'
+svn_trunk_url: 'https://github.com/johnbashas/Ansible/blob/master'
+APP_PORT: 25
+
+#Application file and directory description
+UID: P639861
+#TEMP: '/tmp/dps'
+TEMP: '/tmp/{{ UID }}/dps'
+HOME: '/tmp/{{UID }}/local/apps/fincadservice'
+HOME_DPS: '/tmp/{{ UID }}/local/apps/dps'
+APP_HOME: '{{ HOME }}/{{ FIN_APP }}'
+#APP_HOME_DPS: '{{ HOME_DPS }}/{{ APP }}'
+DIST_DIR: '{{ HOME }}/dist'
+DEPLOY_DIR: '{{ HOME }}/deploy'
+LOG_DIR: '{{ HOME }}/logs'
+BUILD_CONFIRMATION_FILE: '{{ DEPLOY_DIR }}/bin/build.info'
+APP_LOG_FILE: '{{ LOG_DIR }}/{{ FIN_APP }}.log'
+#APP_PROGRAM_FILE: '{{ APP_HOME }}/bin/{{ APP }}.jar'
+
+#User details
+APP_OWNER: 'vagrant'
+APP_GROUP: 'vagrant'
+
+#Extra vars description
+java_loc_orig: '{{ JAVA_LOC_ORIG }}'
+var_file_name: 'dump_all_vars_dev_dps.txt'
+
+#Email description
+email_attachment_success: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+email_subject_success: "Deployment Log for {{FIN_APP}}"
+email_body_success: "Deployment completed for {{FIN_APP}} on {{ env_full_fillment }}, Log file : {{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+DIST_LIST_success: 'basha.tech@gmail.com'
+
+email_attachment_failed: "/tmp/{{ UID }}/local/apps/fincadservice/fincadservice/dist/*.log"
+email_subject_failed: "Deployment Failure Log for {{FIN_APP}}"
+email_body_failed: "Deployment failed for {{ FIN_APP}} on {{ env_full_fillment }}, Log file : {{ LOG_DIR }}/Failed_Log_{{ FIN_APP }}_{{ deploy_start_time }}.log"
+DIST_LIST_failed: 'basha.tech@gmail.com'
+
+MAIL_PORT: 25

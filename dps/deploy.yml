@@ -1,0 +1,9 @@
+---
+# deploy.yml includes deployment stuffs
+
+# Roles defined for People service application
+
+# Roles defined for TMANSERVER application
+- hosts: dev_dps
+  roles:
+    - { role: dps, when: app_name == "dps" }

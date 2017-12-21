@@ -1,0 +1,107 @@
+---
+# defaults file for DPS application
+
+APP: '{{ app_name }}'
+JAVA_LOC_ORIG: '/usr/jdk/jdk1.8.0_131'
+env_full_fillment: 'DEV-Development'
+PROCESS_NAME: sendmail
+APP_PROGRAM_FILE: '/usr/lib/sendmail'
+svn_trunk_url: 'https://github.com/johnbashas/Ansible/blob/master'
+APP_PORT: 25
+
+#Application file and directory description
+TEMP: '/tmp/dps'
+DPS_APP_HOME: '{{ DPS_HOME }}/{{ APP }}'
+DPS_DIST_DIR: '{{ DPS_HOME }}/dist'
+DPS_DEPLOY_DIR: '{{ DPS_HOME }}/deploy'
+DPS_LOG_DIR: '{{ DPS_APP_HOME }}/logs'
+#BUILD_CONFIRMATION_FILE: '{{ DPS_DEPLOY_DIR }}/bin/build.info'
+DPS_APP_LOG_FILE: '{{ DPS_LOG_DIR }}/{{ APP }}.log'
+
+#User details
+APP_OWNER: 'vagrant'
+APP_GROUP: 'vagrant'
+
+#Extra vars description
+java_loc_orig: '{{ JAVA_LOC_ORIG }}'
+dps_var_file_name: 'dump_all_vars_dev_dps.txt'
+
+#Email description
+email_attachment_success: "{{ DPS_LOG_DIR }}/{{ APP }}_{{ dps_new_build }}_{{ deploy_start_time }}.log"
+email_subject_success: "Deployment Log for {{APP}}"
+email_body_success: "Deployment completed for {{APP}} on {{ env_full_fillment }}, Log file : {{ DPS_LOG_DIR }}/{{ APP }}_{{ dps_new_build }}_{{ deploy_start_time }}.log"
+DIST_LIST_success: 'basha.tech@gmail.com'
+
+email_attachment_failed: "{{ DPS_HOME }}/dist/*.log"
+email_subject_failed: "Deployment Failure Log for {{APP}}"
+email_body_failed: "Deployment failed for {{APP}} on {{ env_full_fillment }}, Log file : {{ DPS_LOG_DIR }}/Failed_Log_{{ APP }}_{{ deploy_start_time }}.log"
+DIST_LIST_failed: 'basha.tech@gmail.com'
+
+MAIL_PORT: 25
+
+# Variable for Fincadservice application.
+
+FIN_APP: '{{ finapp_name }}'
+APP_PROGRAM_FILE: '/usr/lib/sendmail'
+APP_PROGRAM_FILE_RH: '/usr/sbin/sendmail'
+svn_trunk_url: 'https://github.com/johnbashas/Ansible/blob/master'
+
+APP_HOME: '{{ HOME }}/{{ FIN_APP }}'
+DIST_DIR: '{{ HOME }}/dist'
+DEPLOY_DIR: '{{ HOME }}/deploy'
+LOG_DIR: '{{ HOME }}/logs'
+#FIN_BUILD_CONFIRMATION_FILE: '{{ DEPLOY_DIR }}/bin/build.info'
+APP_LOG_FILE: '{{ LOG_DIR }}/{{ FIN_APP }}.log'
+
+var_file_name: 'dump_all_vars_dev_dps.txt'
+
+fin_email_attachment_success: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+fin_email_subject_success: "Deployment Log for {{FIN_APP}}"
+fin_email_body_success: "Deployment completed for {{FIN_APP}} on {{ env_full_fillment }}, Log file : {{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+
+fin_email_attachment_failed: "{{ HOME }}/fincadservice/dist/*.log"
+fin_email_subject_failed: "Deployment Failure Log for {{FIN_APP}}"
+fin_email_body_failed: "Deployment failed for {{ FIN_APP}} on {{ env_full_fillment }}, Log file : {{ LOG_DIR }}/Failed_Log_{{ FIN_APP }}_{{ deploy_start_time }}.log"
+
+#Build Variables
+
+version_no : 18.0
+branch_name: master
+BUILD: '{{ build_no }}'
+FINBUILD: '{{ finbuild_no }}'
+VERSION: '{{ version_no }}'
+BRANCH: '{{ branch_name }}'
+BUILD_NAME: 'BUILD_{{BUILD}}'
+FINBUILD_NAME: 'BUILD_{{FINBUILD}}'
+BUILD_FILE: '{{ APP }}_{{ BUILD_NAME }}.zip'
+BUILD_FILENAME: '{{ APP }}_{{ BUILD_NAME }}'
+BUILD_FINFILE: '{{ FIN_APP }}_{{ FINBUILD_NAME }}.zip'
+BUILD_FINFILENAME: '{{ FIN_APP }}_{{ FINBUILD_NAME }}'
+MAJ_VER: 
+MIN_VER:
+build: BUILD
+
+#SVN description
+SVN_EXPORT_DIR: '/tmp/{{ APP }}'
+SVN_EXPORT_FINDIR: '/tmp/{{ FIN_APP }}'
+SVN_TRUNK: '{{ svn_trunk_url }}'
+SVN_SOURCE: '{{ SVN_TRUNK }}/{{ BUILD_FILE }}'
+SVN_FINSOURCE: '{{ SVN_TRUNK }}/{{ BUILD_FINFILE }}'
+
+#Temp directory and file description
+TEMP_DEPLOY_DIR: '{{ DPS_DEPLOY_DIR }}/{{ BUILD_FILENAME }}'
+TEMP_DEPLOY_CONFIRMATION_FILE: '{{ TEMP_DEPLOY_DIR }}/bin/build_file.txt'
+TEMP_DEPLOY: '{{ DEPLOY_DIR }}/{{ BUILD_FINFILENAME }}'
+TEMP_DEPLOY_FILE: '{{ TEMP_DEPLOY }}/bin/build_file.txt'
+
+log_file: '/tmp/ansible.log'
+
+#Extra vars description
+process_name: '{{ PROCESS_NAME }}'
+mail_port: '{{ MAIL_PORT }}'
+java_loc: '{{ DPS_APP_HOME }}/java'
+app_port: '{{ APP_PORT }}'
+
+
+
+
