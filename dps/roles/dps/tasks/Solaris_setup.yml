@@ -126,12 +126,15 @@
 #      remote_src: yes
 #      mode: 0777
 
-  - name: Moving folder to deploy folder
-    file: 
-    path: "{{ PRIMARY_FIN_DIR }}/" 
-    dest: "{{ DEPLOY_DIR }}"
-    state: absent
-    when: stat_result.stat.exists
+#  - name: Moving folder to deploy folder
+#    file: 
+#    path: "{{ PRIMARY_FIN_DIR }}/" 
+#    dest: "{{ DEPLOY_DIR }}"
+#    state: absent
+#    when: stat_result.stat.exists
+
+   - name: Moving folder to deploy folder
+     shell: mv "{{ PRIMARY_FIN_DIR }}/*" "{{ DEPLOY_DIR }}"
 
   - name: Getting build number from text file
     slurp:
