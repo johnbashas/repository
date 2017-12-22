@@ -51,10 +51,10 @@ APP_HOME: '{{ HOME }}/{{ FIN_APP }}'
 DIST_DIR: '{{ APP_HOME }}/dist'
 DEPLOY_DIR: '{{ APP_HOME }}/deploy'
 LOG_DIR: '{{ APP_HOME }}/logs'
-FIN_BUILD_CONFIRMATION_FILE: '{{ DEPLOY_DIR }}/{{ PRIMARY_FIN_NAME }}/bin/BUILD'
 APP_LOG_FILE: '{{ LOG_DIR }}/{{ FIN_APP }}.log'
 PRIMARY_FIN_NAME: fincadservice
 PRIMARY_FIN_DIR: '{{ APP_HOME }}/{{ PRIMARY_FIN_NAME }}'
+FIN_BUILD_CONFIRMATION_FILE: '{{ DEPLOY_DIR }}/{{ PRIMARY_FIN_NAME }}/bin/BUILD'
 
 var_file_name: 'dump_all_vars_dev_dps.txt'
 
