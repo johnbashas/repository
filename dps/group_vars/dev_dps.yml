@@ -56,7 +56,7 @@ PRIMARY_FIN_NAME: fincadservice
 PRIMARY_FIN_DIR: '{{ APP_HOME }}/{{ PRIMARY_FIN_NAME }}'
 FIN_BUILD_CONFIRMATION_FILE: '{{ DEPLOY_DIR }}/{{ PRIMARY_FIN_NAME }}/bin/BUILD'
 
-var_file_name: 'dump_all_vars_dev_dps.txt'
+var_file_name: 'dump_all_vars_dev_fincadservice.txt'
 
 fin_email_attachment_success: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
 fin_email_subject_success: "Deployment Log for {{FIN_APP}}"
