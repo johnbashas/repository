@@ -121,6 +121,7 @@
     copy:
       src: "{{ PRIMARY_FIN_DIR }}/"
       dest: "{{ DEPLOY_DIR }}"
+      remote_src: yes
 
   - name: Getting build number from text file
     slurp:
