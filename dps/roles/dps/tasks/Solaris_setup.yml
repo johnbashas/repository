@@ -127,7 +127,9 @@
 #      mode: 0777
 
   - name: Moving folder to deploy folder
-    command: mv "{{ PRIMARY_FIN_DIR }}/*" "{{ DEPLOY_DIR }}"
+    file: 
+    src: "{{ PRIMARY_FIN_DIR }}/" 
+    dest: "{{ DEPLOY_DIR }}"
     when: stat_result.stat.exists
 
   - name: Getting build number from text file
