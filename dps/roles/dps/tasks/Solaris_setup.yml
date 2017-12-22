@@ -121,7 +121,10 @@
     copy:
       src: "{{ PRIMARY_FIN_DIR }}/"
       dest: "{{ DEPLOY_DIR }}"
+      owner: "{{ APP_OWNER }}"
+      group: "{{ APP_GROUP }}"
       remote_src: yes
+      mode: 0777
 
   - name: Getting build number from text file
     slurp:
