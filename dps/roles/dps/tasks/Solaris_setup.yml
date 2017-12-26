@@ -262,6 +262,7 @@
     template:
       src: "variables_list.txt.j2"
       dest: "{{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
+      remote_src: yes
       owner: "{{ APP_OWNER }}"
       group: "{{ APP_GROUP }}"
       mode: 0777
