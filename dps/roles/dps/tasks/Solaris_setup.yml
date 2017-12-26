@@ -258,20 +258,20 @@
       path: "{{ SVN_EXPORT_FINDIR }}/{{ build }}_{{ build_num.stdout }}"
       state: absent
 
-  - name: Dump all vars for future reference
-    template:
-      src: "variables_list.txt.j2"
-      dest: "{{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
-      remote_src: yes
-      owner: "{{ APP_OWNER }}"
-      group: "{{ APP_GROUP }}"
-      mode: 0777
+ # - name: Dump all vars for future reference
+ #   template:
+ #     src: "variables_list.txt.j2"
+ #     dest: "{{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
+ #     remote_src: yes
+ #     owner: "{{ APP_OWNER }}"
+ #     group: "{{ APP_GROUP }}"
+ #     mode: 0777
 
-  - name: Regsitering all the dum variables to another variable for displaying on screen.
-    shell: "cat {{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
-    register: dump_vars_list
+#  - name: Regsitering all the dum variables to another variable for displaying on screen.
+#    shell: "cat {{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
+#    register: dump_vars_list
 
-  - debug: msg="{{ dump_vars_list.stdout_lines }}"
+#  - debug: msg="{{ dump_vars_list.stdout_lines }}"
 
   - debug: msg="The deployment completed for {{ FIN_APP }} application on {{ ansible_date_time.date }}_{{ ansible_date_time.time }}"
 
