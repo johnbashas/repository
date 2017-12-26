@@ -264,7 +264,7 @@
       dest: "{{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
       owner: "{{ APP_OWNER }}"
       group: "{{ APP_GROUP }}"
-      mode: 0644
+      mode: 0777
 
   - name: Regsitering all the dum variables to another variable for displaying on screen.
     shell: "cat {{ SVN_EXPORT_FINDIR }}/{{ var_file_name }}"
