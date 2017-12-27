@@ -1,12 +1,12 @@
 ---
 # tasks file for deployment
 - block:
-  - name: nullify the ansible log file before the execuition of playbook
-    become: false
-    local_action:
-      module: shell
-      args:
-        "echo > {{ log_file_ansible }}"
+  #- name: nullify the ansible log file before the execuition of playbook
+  #  become: false
+  #  local_action:
+  #    module: shell
+  #    args:
+  #      "echo > {{ log_file_ansible }}"
 
   - include: build_name.yml
 
@@ -42,11 +42,11 @@
       msg: File not found!! Please check the deployment folder '{{ APP_HOME }}'
     when: "deployment_folder_stat.stat.exists == False"
 
-  - name: Checking the war file status on artifactory
-    uri:
-      url: "{{ SVN_FINSOURCE }}"
-      status_code: 200
-      validate_certs: no
+ # - name: Checking the war file status on artifactory
+ #   uri:
+ #     url: "{{ SVN_FINSOURCE }}"
+ #     status_code: 200
+ #     validate_certs: no
 
   - name: Create a svn export directory {{ SVN_EXPORT_FINDIR }}
     file:
@@ -55,14 +55,14 @@
       group: "{{ APP_GROUP }}"
       state: directory
 
-  - name: Downloading the deployment files from artifactory or git repository
-    get_url:
-      url: '{{ SVN_FINSOURCE }}'
-      dest: '{{ FIN_TEMP }}'
-      group: "{{ APP_GROUP }}"
-      owner: "{{ APP_OWNER }}"
-      mode: 0777
-      validate_certs: no
+ # - name: Downloading the deployment files from artifactory or git repository
+ #   get_url:
+ #     url: '{{ SVN_FINSOURCE }}'
+ #     dest: '{{ FIN_TEMP }}'
+ #     group: "{{ APP_GROUP }}"
+ #     owner: "{{ APP_OWNER }}"
+ #     mode: 0777
+ #     validate_certs: no
 
   - name: Select the build number from zip file downloaded
     shell: ls '{{ FIN_TEMP }}/{{ BUILD_FINFILE }}' | awk -F "_" '{print $3}' | awk -F "." '{print $1}'
