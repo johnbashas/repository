@@ -278,6 +278,7 @@
     copy:
       src: "{{ log_file }}"
       dest: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+      remote_src: yes
 
   #- name: Sending deployment success mail to application ditribuiton list
   #  mail:
