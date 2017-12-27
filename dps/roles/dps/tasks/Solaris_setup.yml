@@ -272,13 +272,13 @@
 
   - debug: msg="{{ dump_vars_list.stdout_lines }}"
 
-  - debug: msg="The deployment completed for {{ FIN_APP }} application on {{ ansible_date_time.date }}_{{ ansible_date_time.time }}"
+#  - debug: msg="The deployment completed for {{ FIN_APP }} application on {{ ansible_date_time.date }}_{{ ansible_date_time.time }}"
 
-  - name: Renaming log file to {{ FIN_APP }}_{{ new_build }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}
-    copy:
-      src: "{{ log_file }}"
-      dest: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
-      remote_src: yes
+#  - name: Renaming log file to {{ FIN_APP }}_{{ new_build }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}
+#    copy:
+#      src: "{{ log_file }}"
+#      dest: "{{ LOG_DIR }}/{{ FIN_APP }}_{{ new_build }}_{{ deploy_start_time }}.log"
+#      remote_src: yes
 
   #- name: Sending deployment success mail to application ditribuiton list
   #  mail:
@@ -295,13 +295,13 @@
 
   - debug: msg="The deployment completed for {{ FIN_APP }} application and email sent successfully"
 
-  rescue:
-    - debug: msg="The deployment seems to be incompleted in one of the steps please check the log files for more info"
+#  rescue:
+#    - debug: msg="The deployment seems to be incompleted in one of the steps please check the log files for more info"
 
-    - name: Renaming log file to {{ FIN_APP }}_{{ deploy_start_time }} incase of failure
-      copy:
-        src: "{{ log_file }}"
-        dest: "{{ LOG_DIR }}/Failed_Log_{{ FIN_APP }}_{{ deploy_start_time }}.log"
+#    - name: Renaming log file to {{ FIN_APP }}_{{ deploy_start_time }} incase of failure
+#      copy:
+#        src: "{{ log_file }}"
+#        dest: "{{ LOG_DIR }}/Failed_Log_{{ FIN_APP }}_{{ deploy_start_time }}.log"
 
   #- name: Sending Failure mail to application ditribuiton list 
   #  mail:
@@ -565,10 +565,10 @@
 
   - debug: msg="The deployment completed for {{ APP }} application on {{ ansible_date_time.date }}_{{ ansible_date_time.time }}"
 
-  - name: Renaming log file to {{ APP }}_{{ dps_new_build }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}
-    copy:
-      src: "{{ log_file }}"
-      dest: "{{ DPS_LOG_DIR }}/{{ APP }}_{{ dps_new_build }}_{{ deploy_start_time }}.log"
+#  - name: Renaming log file to {{ APP }}_{{ dps_new_build }}_{{ ansible_date_time.date }}_{{ ansible_date_time.time }}
+#    copy:
+#      src: "{{ log_file }}"
+#      dest: "{{ DPS_LOG_DIR }}/{{ APP }}_{{ dps_new_build }}_{{ deploy_start_time }}.log"
 
   #- name: Sending deployment success mail to application ditribuiton list
   #  mail:
@@ -585,13 +585,13 @@
 
   - debug: msg="The deployment completed for {{ APP }} application and email sent successfully"
 
-  rescue:
-    - debug: msg="The deployment seems to be incompleted in one of the steps please check the log files for more info"
+#  rescue:
+#    - debug: msg="The deployment seems to be incompleted in one of the steps please check the log files for more info"
 
-    - name: Renaming log file to {{ APP }}_{{ deploy_start_time }} incase of failure
-      copy:
-        src: "{{ log_file }}"
-        dest: "{{ DPS_LOG_DIR }}/Failed_Log_{{ APP }}_{{ deploy_start_time }}.log"
+#    - name: Renaming log file to {{ APP }}_{{ deploy_start_time }} incase of failure
+#      copy:
+#        src: "{{ log_file }}"
+#        dest: "{{ DPS_LOG_DIR }}/Failed_Log_{{ APP }}_{{ deploy_start_time }}.log"
 
   #- name: Sending Failure mail to application ditribuiton list 
   #  mail:
